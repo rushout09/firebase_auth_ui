@@ -54,12 +54,17 @@ Please note that above details may be null depending on the provider user used t
 
 If you want to have full `FirebaseUser` object then please add [firebase_auth](https://pub.dev/packages/firebase_auth) dependency. You can then use `FirebaseAuth.instance.currentUser()`.
 
-## Configuration
-Create a project on Firebase console and add Android and iOS platform in **Settings > Your apps**
+## Firebase Configuration
+Create a project on Firebase console (Don't forget to provide SHA1 to use Google Sign-In feature) and add Android and iOS platform in **Settings > Your apps**
 - Open the **Authentication** section and then navigate to **Sign in method**. Please enable Email/Password, Google, Facebook and Twitter method depending on your need and click save.
 - Navigate back to **Settings > Your apps**
 - Download "google-services.json" for Android
 - Download "GoogleService-Info.plist"for iOS
+
+## Flutter Configuration
+You should create or migrate the project to support androidX libraries or there might be errors.
+- To create a project using androidx libraries use: ```flutter create --androidx [APP_NAME]```
+- Also, you need to make changes mentioned in this answer if there are errors during your build process: https://stackoverflow.com/a/58655615/7710105
 
 ### Android
 Open **project's build.gradle** ([flutter_project]/android/build.gradle) and add following in `dependencies{ ... }`:
